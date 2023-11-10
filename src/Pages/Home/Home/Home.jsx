@@ -1,9 +1,12 @@
+import Banner from "../Banner/Banner";
+import Category from "../Category/Category";
 
 
 export default function Home() {
   return (
     <div>
-      <h2 className="text-4xl">This is Home page</h2>
+      <Banner></Banner>
+      <Category></Category>
     </div>
   )
 }

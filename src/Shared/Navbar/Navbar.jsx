@@ -9,8 +9,8 @@ export default function Navbar() {
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/our-shop'>Our Shop</NavLink></li>
     </>
     return (
-        <nav className="">
-            <div className="flex items-center bg-[rgba(0,0,0,0.5)] p-3">
+        <nav className="max-w-7xl w-full fixed z-10">
+            <div className="flex items-center bg-[rgba(0,0,0,0.5)] px-12 py-3">
                 <div className="navbar-start items-center flex">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
