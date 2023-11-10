@@ -8,9 +8,11 @@ import slide5 from '../../../assets/home/slide5.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 export default function Category() {
     return (
         <div className='py-16 md:px-20'>
+            <SectionTitle subHeading={"From 11:00am to 10:00pm"} heading={"ORDER ONLINE"}></SectionTitle>
             <Swiper
             style={{padding : '0px 0px 60px 0px'}}
                 slidesPerView={1}
