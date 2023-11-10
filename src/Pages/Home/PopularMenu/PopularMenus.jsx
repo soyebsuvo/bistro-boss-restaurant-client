@@ -23,6 +23,9 @@ export default function PopularMenus() {
             ></MenuItem>)
         }
       </div>
+      <div className="flex justify-center my-3 mt-8">
+        <button className="btn border-0 border-b-4 border-black bg-transparent hover:bg-transparent hover:border-black">View Full Menu</button>
+      </div>
     </div>
   )
 }
