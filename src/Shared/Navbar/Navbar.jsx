@@ -5,7 +5,7 @@ export default function Navbar() {
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/contact'>Contact Us</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/dashboard'>Dashboard</NavLink></li>
-        <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/our-menu'>Our Menu</NavLink></li>
+        <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/menu'>Our Menu</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/our-shop'>Our Shop</NavLink></li>
     </>
     return (
