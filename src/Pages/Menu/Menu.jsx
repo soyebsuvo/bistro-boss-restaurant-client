@@ -1,4 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import Cover from "../../Shared/Cover/Cover";
+import menuImage from '../../assets/menu/banner3.jpg';
+import PopularMenus from "../Home/PopularMenu/PopularMenus";
 
 export default function Menu() {
   return (
@@ -6,7 +9,8 @@ export default function Menu() {
         <Helmet>
             <title>Bistro Boss | Menu</title>
         </Helmet>
-      men men menu
+      <Cover img={menuImage} height='h-[520px]' title="Our food menu"></Cover>
+      <PopularMenus></PopularMenus>
     </div>
   )
 }

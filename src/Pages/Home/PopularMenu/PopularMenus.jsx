@@ -1,26 +1,28 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useMenu from "../../../Hooks/useMenu";
 import MenuItem from "../../../Shared/MenuItem/MenuItem";
 
 export default function PopularMenus() {
-    const [menus , setMenus] = useState([]);
-    useEffect(() => {
-        axios.get('/menu.json')
-        .then(res => {
-            const filtered = res.data.filter(item => item.category === "popular");
-            setMenus(filtered);
-        })
-    } , [])
+  const { menus } = useMenu();
+  const popularMenus = menus.filter(menu => menu.category === "popular");
+  // const [menus , setMenus] = useState([]);
+  // useEffect(() => {
+  //     axios.get('/menu.json')
+  //     .then(res => {
+  //         const filtered = res.data.filter(item => item.category === "popular");
+  //         setMenus(filtered);
+  //     })
+  // } , [])
   return (
     <div className="my-8 mb-16">
       <SectionTitle heading="FROM OUR MENU" subHeading="Check it out"></SectionTitle>
       <div className="grid md:grid-cols-2 gap-12 px-3 md:px-20">
         {
-            menus.map(menu => <MenuItem
+          popularMenus.map(menu => <MenuItem
             key={menu._id}
             item={menu}
-            ></MenuItem>)
+          ></MenuItem>)
         }
       </div>
       <div className="flex justify-center my-3 mt-8">
