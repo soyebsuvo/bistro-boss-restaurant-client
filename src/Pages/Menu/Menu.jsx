@@ -24,10 +24,10 @@ export default function Menu() {
       <Cover img={menuImage} height='h-[520px]' title="Our food menu"></Cover>
       <SectionTitle subHeading="Don't Miss" heading="Today's Offer"></SectionTitle>
       <MenuCategory items={offered}></MenuCategory>
-      <MenuCategory items={desserts} img={bannerImage} title="Desserts"></MenuCategory>
-      <MenuCategory items={pizzas} img={pizzaImage} title="Pizzas"></MenuCategory>
-      <MenuCategory items={salads} img={saladImage} title="Salads"></MenuCategory>
-      <MenuCategory items={soups} img={soupImage} title="Soups"></MenuCategory>
+      <MenuCategory items={desserts} img={bannerImage} title="desserts"></MenuCategory>
+      <MenuCategory items={pizzas} img={pizzaImage} title="pizzas"></MenuCategory>
+      <MenuCategory items={salads} img={saladImage} title="salads"></MenuCategory>
+      <MenuCategory items={soups} img={soupImage} title="soups"></MenuCategory>
     </div>
   )
 }
