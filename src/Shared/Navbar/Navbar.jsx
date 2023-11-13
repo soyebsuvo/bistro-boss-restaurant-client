@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import './navbar.css'
 export default function Navbar() {
     const links = <>
@@ -33,7 +33,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex-1">
-                    <a className="btn">Button</a>
+                    <Link to='/login' className="btn">Login</Link>
                 </div>
             </div>
         </nav>

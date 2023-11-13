@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import Menu from "../Pages/Menu/Menu";
 import Shop from "../Pages/Shop/Shop";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
             {
                 path : '/shop/:category',
                 element : <Shop></Shop>
+            },
+            {
+                path : '/login',
+                element : <Login></Login>
+            },
+            {
+                path : '/signup',
+                element : <SignUp></SignUp>
             }
         ]
     }

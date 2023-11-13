@@ -5,7 +5,7 @@ export default function useMenu() {
     const [menus, setMenus] = useState([]);
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get('/menu.json')
+        axios.get('http://localhost:5000/menus')
             .then(res => {
                 // const filtered = res.data.filter(item => item.category === category);
                 setMenus(res.data);
