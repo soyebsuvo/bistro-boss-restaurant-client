@@ -2,23 +2,31 @@ import loginBg from '../../assets/reservation/wood-grain-pattern-gray1x.png';
 import loginImage from '../../assets/others/authentication2.png'
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
-import { useEffect } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 export default function Login() {
+    const { login } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         const captcha = e.target.captcha.value;
-        if(validateCaptcha(captcha) === false){
-            return alert("insert valid captcha code")
-        }else{
-            alert("done")
-            console.log(email, password)
+        if (validateCaptcha(captcha) === false) {
+            return alert("insert valid captcha code");
+        } else {
+            login(email, password)
+                .then(result => {
+                    const user = result.user;
+                    console.log(user);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
-    
-    
+
+
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
