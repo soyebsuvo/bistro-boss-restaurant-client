@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom"
 import './navbar.css'
+import { useContext } from "react"
+import { AuthContext } from "../../AuthProvider/AuthProvider"
 export default function Navbar() {
+    const { user, logout } = useContext(AuthContext);
     const links = <>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/contact'>Contact Us</NavLink></li>
@@ -8,6 +11,11 @@ export default function Navbar() {
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/menu'>Our Menu</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/shop/salads'>Our Shop</NavLink></li>
     </>
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(err => console.log(err))
+    }
     return (
         <nav className="max-w-7xl w-full fixed z-10">
             <div className="flex items-center bg-[rgba(0,0,0,0.5)] px-20 py-3">
@@ -33,7 +41,11 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex-1">
-                    <Link to='/login' className="btn">Login</Link>
+                    {
+                        user ? <button onClick={handleLogout} className="btn">Logout</button> :
+                            <Link to='/login' className="btn">Login</Link>
+                    }
+
                 </div>
             </div>
         </nav>

@@ -1,6 +1,6 @@
 import loginBg from '../../assets/reservation/wood-grain-pattern-gray1x.png';
 import loginImage from '../../assets/others/authentication2.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
@@ -8,6 +8,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 export default function SignUp() {
+    const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     const {
         register,
@@ -21,6 +22,7 @@ export default function SignUp() {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate('/')
             })
             .catch(error => {
                 console.log(error)
