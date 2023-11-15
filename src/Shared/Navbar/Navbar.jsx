@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom"
 import './navbar.css'
 import { useContext } from "react"
-import { AuthContext } from "../../AuthProvider/AuthProvider"
+import { FaShoppingCart } from 'react-icons/fa';
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 export default function Navbar() {
     const { user, logout } = useContext(AuthContext);
     const links = <>
@@ -10,6 +12,12 @@ export default function Navbar() {
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/menu'>Our Menu</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/shop/salads'>Our Shop</NavLink></li>
+        <li><Link className='uppercase font-inter font-extrabold text-white' to='/'>
+            <button className="flex justify-center items-center gap-3">
+                <FaShoppingCart className="text-3xl"></FaShoppingCart>
+                <div className="badge">+0</div>
+            </button>
+        </Link></li>
     </>
     const handleLogout = () => {
         logout()
@@ -36,7 +44,7 @@ export default function Navbar() {
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 items-center">
                         {links}
                     </ul>
                 </div>

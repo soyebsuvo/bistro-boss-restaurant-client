@@ -7,6 +7,7 @@ import Menu from "../Pages/Menu/Menu";
 import Shop from "../Pages/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path : '/menu',
-                element : <Menu></Menu>
+                element : <PrivateRoute><Menu></Menu></PrivateRoute>
             },
             {
                 path : '/shop/:category',
