@@ -13,7 +13,7 @@ export default function Testimonials() {
     const [testimonials, setTestimonials] = useState([])
 
     useEffect(() => {
-        axios.get('/reviews.json').then(res => setTestimonials(res.data))
+        axios.get('http://localhost:5000/reviews').then(res => setTestimonials(res.data))
     }, [])
     return (
         <div className='py-8 mb-12 md:px-20'>

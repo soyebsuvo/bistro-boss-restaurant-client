@@ -1,9 +1,33 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 export default function FoodCard({ item }) {
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
     const { name, image, price, recipe } = item;
     const handleAddToCart = food => {
         console.log(food)
+        if (user && user.email) {
+            alert("")
+        } else {
+            Swal.fire({
+                title: "You are not Logged In",
+                text: "You need to login before add a product to cart",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/login")
+                }
+            });
+        }
+
     }
     return (
         <div className="card card-compact bg-[#F3F3F3] rounded-none font-inter">
