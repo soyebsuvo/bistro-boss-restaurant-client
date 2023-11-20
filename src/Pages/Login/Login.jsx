@@ -1,10 +1,10 @@
 import loginBg from '../../assets/reservation/wood-grain-pattern-gray1x.png';
 import loginImage from '../../assets/others/authentication2.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import SocialLogins from '../../components/SocialLogins/SocialLogins';
 export default function Login() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -75,11 +75,7 @@ export default function Login() {
                                     </form>
                                     <p className='text-[rgba(209,160,84,1)]'>New here? <Link to='/signup' className='font-bold'>Create a new account</Link></p>
                                     <p className='text-center text-black my-2'>Or login with</p>
-                                    <div className='flex gap-4 justify-center'>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaGoogle></FaGoogle></button>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaGithub></FaGithub></button>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaFacebookF></FaFacebookF></button>
-                                    </div>
+                                    <SocialLogins></SocialLogins>
                                 </div>
                             </div>
                         </div>

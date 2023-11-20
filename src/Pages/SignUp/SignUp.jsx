@@ -1,13 +1,15 @@
 import loginBg from '../../assets/reservation/wood-grain-pattern-gray1x.png';
 import loginImage from '../../assets/others/authentication2.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import SocialLogins from '../../components/SocialLogins/SocialLogins';
 
 
 export default function SignUp() {
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     const {
@@ -23,6 +25,16 @@ export default function SignUp() {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 navigate('/')
+                const userInfo = {
+                    name : data.name,
+                    email : data.email,
+                }
+                axiosPublic.post("/users" , userInfo)
+                .then(res => {
+                    if(res.data.insertedId){
+                        console.log("user added")
+                    }
+                })
             })
             .catch(error => {
                 console.log(error)
@@ -76,11 +88,8 @@ export default function SignUp() {
                                     </form>
                                     <p className='text-[rgba(209,160,84,1)]'>Already Registered? <Link to='/login' className='font-bold'>GO to login</Link></p>
                                     <p className='text-center text-black my-2'>Or Sign up with</p>
-                                    <div className='flex gap-4 justify-center'>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaGoogle></FaGoogle></button>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaGithub></FaGithub></button>
-                                        <button className='btn bg-transparent rounded-full p-4 border border-black'><FaFacebookF></FaFacebookF></button>
-                                    </div>
+                                    
+                                    <SocialLogins></SocialLogins>
                                 </div>
                             </div>
                         </div>

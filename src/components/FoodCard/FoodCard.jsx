@@ -6,7 +6,9 @@ import Swal from 'sweetalert2'
 import { useLocation, useNavigate } from "react-router-dom";
 // import axios from "axios";
 import useAxios from "../../Hooks/useAxios";
+import useCarts from "../../Hooks/useCarts";
 export default function FoodCard({ item }) {
+    const [ , refetch] = useCarts();
     const axiosSecure = useAxios();
     const navigate = useNavigate();
     const locatoin = useLocation();
@@ -33,6 +35,7 @@ export default function FoodCard({ item }) {
                         timer : 2000
                     })
                 }
+                refetch();
             })
         } else {
             Swal.fire({
