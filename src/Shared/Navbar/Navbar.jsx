@@ -3,8 +3,10 @@ import './navbar.css'
 import { useContext } from "react"
 import { FaShoppingCart } from 'react-icons/fa';
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useCarts from "../../Hooks/useCarts";
 
 export default function Navbar() {
+    const [ carts ] = useCarts();
     const { user, logout } = useContext(AuthContext);
     const links = <>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/'>Home</NavLink></li>
@@ -15,7 +17,7 @@ export default function Navbar() {
         <li><Link className='uppercase font-inter font-extrabold text-white' to='/'>
             <button className="flex justify-center items-center gap-3">
                 <FaShoppingCart className="text-3xl"></FaShoppingCart>
-                <div className="badge">+0</div>
+                <div className="badge">+{carts?.length}</div> 
             </button>
         </Link></li>
     </>
