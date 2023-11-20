@@ -14,7 +14,7 @@ export default function Navbar() {
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/menu'>Our Menu</NavLink></li>
         <li><NavLink className='uppercase font-inter font-extrabold text-white' to='/shop/salads'>Our Shop</NavLink></li>
-        <li><Link className='uppercase font-inter font-extrabold text-white' to='/'>
+        <li><Link className='uppercase font-inter font-extrabold text-white' to='/dashboard/carts'>
             <button className="flex justify-center items-center gap-3">
                 <FaShoppingCart className="text-3xl"></FaShoppingCart>
                 <div className="badge">+{carts?.length}</div>

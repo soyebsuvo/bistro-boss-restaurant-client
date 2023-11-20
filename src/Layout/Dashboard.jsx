@@ -2,6 +2,7 @@ import { FaAd, FaBars, FaBook, FaCalendar, FaHome, FaShoppingBag, FaShoppingCart
 import { NavLink, Outlet } from "react-router-dom";
 import './dashboard.css'
 export default function Dashboard() {
+    const isAdmin = true;
     return (
         <div className="max-w-7xl mx-auto">
             <div className="flex">
@@ -11,30 +12,57 @@ export default function Dashboard() {
                         <p className="text-2xl font-cinzel font-bold tracking-widest">Restaurant</p>
                     </div>
                     <ul className="space-y-4">
-                        <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/userHome'>
-                            <FaHome></FaHome>
-                            User Home</NavLink>
-                        </li>
-                        <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/reservation'>
-                            <FaCalendar></FaCalendar>
-                            Reservation</NavLink>
-                        </li>
-                        <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/payment'>
-                            <FaCalendar></FaCalendar>
-                            Payment History</NavLink>
-                        </li>
-                        <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/carts'>
-                            <FaShoppingCart></FaShoppingCart>
-                            My Carts</NavLink>
-                        </li>
-                        <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/review'>
-                            <FaAd></FaAd>
-                            Add Review</NavLink>
-                        </li>
-                        <li className="font-bold border-b-2 pb-8"><NavLink className='flex items-center gap-2' to='/dashboard/bookings'>
-                            <FaBook></FaBook>
-                            My Booking</NavLink>
-                        </li>
+                        {
+                            isAdmin ? <>
+                                <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/adminHome'>
+                                    <FaHome></FaHome>
+                                    Admin Home</NavLink>
+                                </li>
+                                <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/addItems'>
+                                    <FaCalendar></FaCalendar>
+                                    Add Items</NavLink>
+                                </li>
+                                <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/manageItems'>
+                                    <FaCalendar></FaCalendar>
+                                    Manage Items</NavLink>
+                                </li>
+                                <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/manageBookings'>
+                                    <FaShoppingCart></FaShoppingCart>
+                                    Manage Bookings</NavLink>
+                                </li>
+                                <li className="font-bold border-b-2 pb-8"><NavLink className='flex items-center gap-2' to='/dashboard/allUsers'>
+                                    <FaAd></FaAd>
+                                    All Users</NavLink>
+                                </li>
+                                
+                            </>
+                                : <>
+                                    <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/userHome'>
+                                        <FaHome></FaHome>
+                                        User Home</NavLink>
+                                    </li>
+                                    <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/reservation'>
+                                        <FaCalendar></FaCalendar>
+                                        Reservation</NavLink>
+                                    </li>
+                                    <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/payment'>
+                                        <FaCalendar></FaCalendar>
+                                        Payment History</NavLink>
+                                    </li>
+                                    <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/carts'>
+                                        <FaShoppingCart></FaShoppingCart>
+                                        My Carts</NavLink>
+                                    </li>
+                                    <li className="font-bold"><NavLink className='flex items-center gap-2' to='/dashboard/review'>
+                                        <FaAd></FaAd>
+                                        Add Review</NavLink>
+                                    </li>
+                                    <li className="font-bold border-b-2 pb-8"><NavLink className='flex items-center gap-2' to='/dashboard/bookings'>
+                                        <FaBook></FaBook>
+                                        My Booking</NavLink>
+                                    </li>
+                                </>
+                        }
                         <li className="font-bold"><NavLink className='flex items-center gap-2' to='/'>
                             <FaHome></FaHome>
                             Home</NavLink>
