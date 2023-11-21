@@ -21,13 +21,13 @@ export default function Navbar() {
             </button>
         </Link></li>
     </>
-    const handleLogout = () => {
+    const handleLogout = (refetch) => {
         logout()
             .then(() => {
-                
+                refetch();
             })
             .catch(err => console.log(err))
-            refetch()
+            
     }
     return (
         <nav className="max-w-7xl w-full fixed z-10">
@@ -55,7 +55,7 @@ export default function Navbar() {
                 </div>
                 <div className="navbar-end flex-1">
                     {
-                        user ? <button onClick={handleLogout} className="btn">Logout</button> :
+                        user ? <button onClick={()=>handleLogout(refetch)} className="btn">Logout</button> :
                             <Link to='/login' className="btn">Login</Link>
                     }
 

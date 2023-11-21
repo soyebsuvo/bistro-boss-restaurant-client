@@ -1,8 +1,9 @@
 import { FaAd, FaBars, FaBook, FaCalendar, FaHome, FaShoppingBag, FaShoppingCart, FaSms } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import './dashboard.css'
+import useAdmin from "../Hooks/useAdmin";
 export default function Dashboard() {
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="max-w-7xl mx-auto">
             <div className="flex">

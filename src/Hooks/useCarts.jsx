@@ -9,6 +9,7 @@ export default function useCarts() {
     const axiosSecure = useAxios();
     const { data: carts = [] , refetch} = useQuery({
         queryKey: ["carts"],
+        disabled: true,
         queryFn: async () => {
             const res = await axiosSecure.get(`/carts?email=${user?.email}`);
             return res.data;
