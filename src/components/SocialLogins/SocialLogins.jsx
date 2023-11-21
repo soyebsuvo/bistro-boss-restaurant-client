@@ -9,7 +9,7 @@ export default function SocialLogins() {
     const navigate = useNavigate();
     const location = useLocation();
     const axiosPublic = useAxiosPublic();
-    const { googleLogin } = useContext(AuthContext);
+    const { googleLogin , setLoading} = useContext(AuthContext);
     const handleSocialLogin = media => {
         media()
         .then(res => {
@@ -29,6 +29,7 @@ export default function SocialLogins() {
         })
         .catch(err => {
             console.error(err);
+            setLoading(false)
         })
     }
     return (
